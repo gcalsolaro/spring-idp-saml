@@ -252,10 +252,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements I
 	public KeyManager keyManager() {
 		DefaultResourceLoader loader = new DefaultResourceLoader();
 		Resource storeFile = loader.getResource("classpath:/saml/samlKeystore.jks");
-		String storePass = "nalle123";
+		String storePass = "gcpwd";
 		Map<String, String> passwords = new HashMap<String, String>();
-		passwords.put("apollo", "nalle123");
-		String defaultKey = "apollo";
+		passwords.put("gcalsolaro", "gcpwd");
+		String defaultKey = "gcalsolaro";
 		return new JKSKeyManager(storeFile, storePass, passwords, defaultKey);
 	}
 
@@ -350,7 +350,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements I
 	@Bean
 	public MetadataGenerator metadataGenerator() {
 		MetadataGenerator metadataGenerator = new MetadataGenerator();
-		metadataGenerator.setEntityId("com:eni:htp:hsapp:spring:sp");
+		metadataGenerator.setEntityId("com:gcalsolaro:saml:hsapp:spring:sp");
 		metadataGenerator.setExtendedMetadata(extendedMetadata());
 		metadataGenerator.setIncludeDiscoveryExtension(false);
 		metadataGenerator.setKeyManager(keyManager());
